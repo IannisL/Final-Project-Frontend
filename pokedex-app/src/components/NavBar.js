@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { useContext } from "react";
 
-import { ThemeContext } from "../context/ThemeContextt.js";
+import { ThemeContext } from "../context/ThemeContext.js";
 
 function NavBar() {
     const themeCtx = useContext(ThemeContext);
@@ -19,14 +19,14 @@ function NavBar() {
         <h1 style={{ color: "#e50914" }}>Pokedex App</h1>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/Home">Home</Link>
           </li>
           <li>
-            <Link to="/movies">pokedex</Link>
+            <Link to="/pokedex">pokedex</Link>
           </li>
         </ul>
-  
         <button onClick={handleClick}>{theme}</button>
+        
       </nav>
     );
   }
