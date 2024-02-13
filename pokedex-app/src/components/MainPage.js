@@ -25,12 +25,14 @@ const MainPage = () => {
         
     }
     const getPokemon = async (res) => {
+        // setPokemon([])
         res.map(async (item) => {
             const result = await axios.get(item.url)
             console.log(result.data)
             setPokemon(state => {
+                console.dir( state) 
                  const newState = [...state, result.data]
-                newState.sort((a, b) => a.id > b.id ? 1 : -1)
+                // newState.sort((a, b) => a.id > b.id ? 1 : -1)
                 return newState;
             })
         })
@@ -38,7 +40,7 @@ const MainPage = () => {
     }
     useEffect(() => {
         pokeFun();
-    }, [])
+    }, [url])
     return (
         <div className="container">
             <div className="left-contnet">
