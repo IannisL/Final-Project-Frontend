@@ -16,7 +16,7 @@ const MainPage = () => {
         const res = await axios.get(url);
         console.log(res.data.results)
         setNextUrl(res.data.next);
-        setPrevUrl(res.data.previos);
+        setPrevUrl(res.data.previous);
         getPokemon(res.data.results)
         // const newState = [...Pokemon, ...res.data.results]
         // newState.sort((a, b) => a.id > b.id ? 1 : -1)
@@ -50,7 +50,7 @@ const MainPage = () => {
                     {prevUrl && < button onClick={() => {
                         setPokemon([])
                         setUrl(prevUrl)
-                    }}>Previos</button>
+                    }}>Previous</button>
                 }
 
                     {nextUrl && <button onClick={() => {
