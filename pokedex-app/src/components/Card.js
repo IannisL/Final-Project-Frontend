@@ -1,6 +1,5 @@
 import React from "react";
-
-const Card = ({ pokemon, loading, PokemonInfo }) => {
+const Card = ({ pokemon, loading, infoPokemon }) => {
     console.log(pokemon);
     const filteredPokemons = pokemon.filter((value, index, self) =>
         self.findIndex(item => item.name === value.name) === index
@@ -13,7 +12,7 @@ const Card = ({ pokemon, loading, PokemonInfo }) => {
                     filteredPokemons.map((item) => {
                         return (
 
-                            <div className="card" key={item.id} onClick={() => PokemonInfo(item)}>
+                            <div className="card" key={item.id} onClick={() => infoPokemon(item)}>
                                 <h2>{item.id}</h2>
                                 <img src={item.sprites.front_default} alt="" />
                                 <h2>{item.name}</h2>

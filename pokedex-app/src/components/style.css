@@ -6,7 +6,7 @@
 font-family: 'Roboto', sans-serif;
 }
 body {
-background-color: #FCEEC8;
+background-color: #ffffff;
 }
 .container {
 width: 90%;
@@ -29,7 +29,7 @@ display: flex;
 } */
 .card{
   width: 300px;
-  background-color: #9EDEF9;
+  background-color: #f9fafa;
   border-radius: 2rem;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
   padding: 0 1.5rem;
@@ -85,6 +85,6 @@ height: 180px;
   font-size: 17px;
   font-weight: bold;
   color: white;
-  background-color: #b74555;
+  background-color: #2c2727;
   border-radius: 8px;
 }

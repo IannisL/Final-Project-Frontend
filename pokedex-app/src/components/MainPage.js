@@ -1,72 +1,62 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import Card from "./Card";
-import PokemonInfo from "./Pokemon";
+import Pokeinfo from "./Pokeinfo";
+import axios from "axios";
+import { useState } from "react";
+import { useEffect } from "react";
+const Main=()=>{
+    const [pokeData,setPokeData]=useState([]);
+    const [loading,setLoading]=useState(true);
+    const [url,setUrl]=useState("https://pokeapi.co/api/v2/pokemon/")
+    const [nextUrl,setNextUrl]=useState();
+    const [prevUrl,setPrevUrl]=useState();
+    const [pokeDex,setPokeDex]=useState();
 
-const MainPage = () => {
-    const [Pokemon, setPokemon] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/");
-    const [nextUrl, setNextUrl] = useState();
-    const [prevUrl, setPrevUrl] = useState();
-    const [pokeDex, setPokeDex] = useState();
-
-    const pokeFun = async () => {
-        setLoading(true);
-        const res = await axios.get(url);
-        console.log(res.data.results)
+    const pokeFun=async()=>{
+        setLoading(true)
+        const res=await axios.get(url);
         setNextUrl(res.data.next);
         setPrevUrl(res.data.previous);
         getPokemon(res.data.results)
-        // const newState = [...Pokemon, ...res.data.results]
-        // newState.sort((a, b) => a.id > b.id ? 1 : -1)
-        // setPokemon(newState)
-        setLoading(false);
-        
+        setLoading(false)
     }
-    const getPokemon = async (res) => {
-        // setPokemon([])
-        res.map(async (item) => {
-            const result = await axios.get(item.url)
-            console.log(result.data)
-            setPokemon(state => {
-                console.dir( state) 
-                 const newState = [...state, result.data]
-                // newState.sort((a, b) => a.id > b.id ? 1 : -1)
-                return newState;
-            })
-        })
-        console.log(Pokemon)
+    const getPokemon=async(res)=>{
+       res.map(async(item)=>{
+          const result=await axios.get(item.url)
+          setPokeData(state=>{
+              state=[...state,result.data]
+              state.sort((a,b)=>a.id>b.id?1:-1)
+              return state;
+          })
+       })   
     }
-    useEffect(() => {
+    useEffect(()=>{
         pokeFun();
-    }, [url])
-    return (
-        <div className="container">
-            <div className="left-contnet">
-                <Card pokemon={Pokemon} loading={loading} InfoPokemon={poke => setPokeDex(poke)} />
-            
-                <div className="btn-group">
-                    {prevUrl && < button onClick={() => {
-                        setPokemon([])
-                        setUrl(prevUrl)
-                    }}>Previous</button>
-                }
+    },[url])
+    return(
+        <>
+            <div className="container">
+                <div className="left-content">
+                    <Card pokemon={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)}/>
+                    
+                    <div className="btn-group">
+                        {  prevUrl && <button onClick={()=>{
+                            setPokeData([])
+                           setUrl(prevUrl) 
+                        }}>Previous</button>}
 
-                    {nextUrl && <button onClick={() => {
-                        setPokemon([])
-                        setUrl(nextUrl)
-                    }}>Next</button>
-                }
+                        { nextUrl && <button onClick={()=>{
+                            setPokeData([])
+                            setUrl(nextUrl)
+                        }}>Next</button>}
+
+                    </div>
+                </div>
+                <div className="right-content">
+                   <Pokeinfo data={pokeDex}/>
                 </div>
             </div>
-            <div className="right-contnet">
-                <PokemonInfo data={pokeDex} />
-            </div>
-        </div>
+        </>
     )
-};
-
-
-
-export default MainPage;
+}
+export default Main;
