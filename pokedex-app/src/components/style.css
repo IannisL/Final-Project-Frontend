@@ -5,9 +5,6 @@
   margin: 0;
 font-family: 'Roboto', sans-serif;
 }
-body {
-background-color: #ffffff;
-}
 .container {
 width: 90%;
 margin: auto;
@@ -29,7 +26,7 @@ display: flex;
 } */
 .card{
   width: 300px;
-  background-color: #f9fafa;
+  background-color: #bfc4c4;
   border-radius: 2rem;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
   padding: 0 1.5rem;
@@ -64,7 +61,7 @@ height: 180px;
   margin-top: 1rem;
 }
 .abilities .group{
-  background-color: #b74555;
+  background-color: #020202;
   color: white;
   padding: 0.5rem;
   font-size: 12px;

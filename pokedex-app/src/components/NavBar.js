@@ -19,11 +19,17 @@ function NavBar() {
         <h1 style={{ color: "#e50914" }}>Pokedex App</h1>
         <ul>
           <li>
-            <Link to="/Home">Home</Link>
+            <Link to="/About">About</Link>
           </li>
           <li>
-            <Link to="/pokedex">pokedex</Link>
+            <Link to="/MainPage">PokeDex</Link>
           </li>
+          <li>
+            <Link to="/login">Log in</Link>
+          </li>
+          <li>
+            <Link to="/SignUp">Sign Up</Link>
+            </li>
         </ul>
         <button onClick={handleClick}>{theme}</button>
         
