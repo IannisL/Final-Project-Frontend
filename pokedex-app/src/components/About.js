@@ -31,7 +31,8 @@ https://github.com/IannisL/Final-Project-Backend
 
 
 
-Thanks to Abraham E.Tavarez and Colton Wright of Perscholas for putting up with me and teaching me everthing they could! Thanks to them I was able to make this beauty over here! 
+Thanks to Abraham E.Tavarez and Colton Wright of Perscholas for putting up with me and teaching me everthing they could! Thanks to them I was able to make this beauty over here! And A special Thanks to Eileen Lowers for helping me at random times even when she had soo much on her plate! I wouldn't have made it through without her!Thanks Madam President!
+ 
 
 
 These are the outside resources that I used in my Project for code and reference and Ideas for my pages and pokedex over all!
